@@ -24,7 +24,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // place overrides here
 #undef TAPPING_TERM
 #define TAPPING_TERM 250
-#define TAPPING_TOGGLE  1
+#define TAPPING_FORCE_HOLD
 #define FORCE_NKRO
 
 // If you need more program area, try select and reduce rgblight modes to use.
