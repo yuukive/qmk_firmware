@@ -74,11 +74,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * `-------------------------------------------------------------------------------------------------'
    */
   [_QWERTY] = LAYOUT( \
-      KC_TILD, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,                         KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN,        KC_CAPS, \
+      KC_GRV,  KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,                         KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN,        KC_TILD, \
       KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                            KC_Y,   KC_U,     KC_I,    KC_O,    KC_P,           KC_BSLS, \
       KC_MINS, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                            KC_H,   KC_J,     KC_K,    KC_L,    SFT_T(KC_SCLN), KC_QUOT, \
       KC_EQL,  KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,          KC_LBRC, KC_RBRC, KC_N,   KC_M,     KC_COMM, KC_DOT,  KC_SLSH,        KC_ESC, \
-      ADJUST,  KC_ESC,  KC_LALT, KC_LGUI, LOWER,   SFT_T(KC_SPC), KC_LCTL, RAISE,   LOWER,  KC_ENT,   KC_RCTL, KC_DOWN, KC_UP,          KC_RGHT \
+      ADJUST,  KC_CAPS, KC_LALT, KC_LGUI, LOWER,   SFT_T(KC_SPC), KC_LCTL, RAISE,   LOWER,  KC_ENT,   KC_RCTL, KC_DOWN, KC_UP,          KC_RIGHT \
       ),
 
   /* Colemak
@@ -137,11 +137,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * `-------------------------------------------------------------------------------------------------'
    */
   [_LOWER] = LAYOUT( \
-      KC_ESC,   _______,    KC_HOME,    KC_END,     KC_PGDN,    KC_PGUP,                   _______, KC_SLSH, KC_ASTR, KC_PLUS, _______, _______, \
-      _______,  KC_DELT,    KC_BSPC,    KC_UP,      _______,    _______,                   _______, KC_P7,   KC_P8,   KC_P9,   KC_BSPC, _______, \
-      KC_ENT,   LCTL(KC_A), KC_LEFT,    KC_DOWN,    KC_RIGHT,   KC_SPC,                    KC_P0,   KC_P4,   KC_P5,   KC_P6,   KC_P0,   KC_ENT, \
-      _______,  LCTL(KC_Z), LCTL(KC_X), LCTL(KC_C), LCTL(KC_V), _______, _______, KC_SPC,  KC_DOT,  KC_P1,   KC_P2,   KC_P3,   KC_MINS, _______, \
-      _______,  _______,    _______,    _______,    _______,    _______, _______, _______, _______, _______, _______, _______, _______, _______ \
+      KC_ESC,     _______,    KC_HOME,    KC_END,     KC_PGDN,    KC_PGUP,                   _______, KC_SLSH, KC_ASTR, KC_PLUS, _______, _______, \
+      _______,    KC_DELT,    KC_BSPC,    KC_UP,      _______,    _______,                   _______, KC_P7,   KC_P8,   KC_P9,   KC_BSPC, _______, \
+      LCTL(KC_A), KC_ENT,     KC_LEFT,    KC_DOWN,    KC_RIGHT,   KC_SPC,                    KC_P0,   KC_P4,   KC_P5,   KC_P6,   KC_P0,   KC_ENT, \
+      _______,    LCTL(KC_Z), LCTL(KC_X), LCTL(KC_C), LCTL(KC_V), _______, _______, KC_SPC,  KC_DOT,  KC_P1,   KC_P2,   KC_P3,   KC_MINS, _______, \
+      _______,    _______,    _______,    _______,    _______,    _______, _______, _______, _______, _______, _______, _______, _______, _______ \
       ),
   /*
   [_LOWER] = LAYOUT( \
