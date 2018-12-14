@@ -137,11 +137,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * `-------------------------------------------------------------------------------------------------'
    */
   [_LOWER] = LAYOUT( \
-      KC_ESC,     _______,    KC_LBRC,    KC_RBRC,    KC_HOME,    KC_END,                    _______, KC_SLSH, KC_ASTR, KC_PLUS, _______, _______, \
-      _______,    KC_DELT,    KC_BSPC,    KC_UP,      KC_RCTL,    KC_PGUP,                   _______, KC_P7,   KC_P8,   KC_P9,   KC_BSPC, _______, \
-      LCTL(KC_A), KC_ENT,     KC_LEFT,    KC_DOWN,    KC_RIGHT,   KC_SPC,                    KC_P0,   KC_P4,   KC_P5,   KC_P6,   KC_ENT,  _______, \
-      _______,    LCTL(KC_Z), LCTL(KC_X), LCTL(KC_C), LCTL(KC_V), KC_PGDN, _______, KC_SPC,  KC_DOT,  KC_P1,   KC_P2,   KC_P3,   KC_DOT,  _______, \
-      _______,    _______,    _______,    _______,    _______,    _______, _______, _______, _______, _______, _______, _______, _______, _______ \
+      KC_ESC,     _______,    KC_LBRC,    KC_RBRC,    KC_HOME,    KC_END,                    _______,  KC_SLSH, KC_ASTR, KC_PLUS, _______, _______, \
+      _______,    KC_DELT,    KC_BSPC,    KC_UP,      KC_RCTL,    KC_PGUP,                   KC_MINS,  KC_P7,   KC_P8,   KC_P9,   KC_BSPC, _______, \
+      LCTL(KC_A), KC_ENT,     KC_LEFT,    KC_DOWN,    KC_RIGHT,   KC_SPC,                    KC_P0,    KC_P4,   KC_P5,   KC_P6,   KC_ENT,  _______, \
+      _______,    LCTL(KC_Z), LCTL(KC_X), LCTL(KC_C), LCTL(KC_V), KC_PGDN, _______, KC_SPC,  KC_COMM,  KC_P1,   KC_P2,   KC_P3,   KC_DOT,  _______, \
+      _______,    _______,    _______,    _______,    _______,    _______, _______, _______, _______,  _______, _______, _______, _______, _______ \
       ),
   /*
   [_LOWER] = LAYOUT( \
@@ -382,14 +382,16 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         } else {
           TOG_STATUS = !TOG_STATUS;
           #ifdef RGBLIGHT_ENABLE
-            //rgblight_mode(RGBLIGHT_MODE_SNAKE + 1);
+            // rgblight_mode(RGBLIGHT_MODE_SNAKE + 1);
+            // rgblight_sethsv(rgblight_get_hue() + 90, rgblight_get_sat(), rgblight_get_val());
           #endif
         }
         layer_on(_LOWER);
         update_tri_layer_RGB(_LOWER, _RAISE, _ADJUST);
       } else {
         #ifdef RGBLIGHT_ENABLE
-          //rgblight_mode(RGB_current_mode);   // revert RGB to initial mode prior to RGB mode change
+          // rgblight_mode(RGB_current_mode);   // revert RGB to initial mode prior to RGB mode change
+          // rgblight_sethsv(rgblight_get_hue() - 90, rgblight_get_sat(), rgblight_get_val());
         #endif
         TOG_STATUS = false;
         layer_off(_LOWER);
@@ -405,14 +407,16 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         } else {
           TOG_STATUS = !TOG_STATUS;
           #ifdef RGBLIGHT_ENABLE
-            //rgblight_mode(RGBLIGHT_MODE_SNAKE);
+            // rgblight_mode(RGBLIGHT_MODE_SNAKE);
+            // rgblight_sethsv(rgblight_get_hue() - 90, rgblight_get_sat(), rgblight_get_val());
           #endif
         }
         layer_on(_RAISE);
         update_tri_layer_RGB(_LOWER, _RAISE, _ADJUST);
       } else {
         #ifdef RGBLIGHT_ENABLE
-          //rgblight_mode(RGB_current_mode);  // revert RGB to initial mode prior to RGB mode change
+          // rgblight_mode(RGB_current_mode);  // revert RGB to initial mode prior to RGB mode change
+          // rgblight_sethsv(rgblight_get_hue() + 90, rgblight_get_sat(), rgblight_get_val());
         #endif
         layer_off(_RAISE);
         TOG_STATUS = false;
