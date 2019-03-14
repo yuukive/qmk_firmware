@@ -97,7 +97,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   /* Lower
    * ,-----------------------------------------.             ,-----------------------------------------.
-   * | ESC  | HOME | PGDN | PGUP |  END |      |             |      |   /  |   *  |   +  | F10  | CAPS |
+   * | ESC  | HOME | PGDN | PGUP |  END |      |             |      |   /  |   *  |   +  | F10  |      |
    * |------+------+------+------+------+------|             |------+------+------+------+------+------|
    * |      | Del  | Back |   ↑  | Ctl+[| Ctl+]|             |      |   7  |   8  |   9  | Back |      |
    * |------+------+------+------+------+------|             |------+------+------+------+------+------|
@@ -109,7 +109,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * `-------------------------------------------------------------------------------------------------'
    */
   [_LOWER] = LAYOUT( \
-      KC_ESC,  KC_HOME, KC_PGDN, KC_PGUP, KC_END,   _______,                   _______, KC_SLSH, KC_ASTR, KC_PLUS, KC_F10,  KC_CAPS, \
+      KC_ESC,  KC_HOME, KC_PGDN, KC_PGUP, KC_END,   _______,                   _______, KC_SLSH, KC_ASTR, KC_PLUS, KC_F10,  _______, \
       _______, KC_DELT, KC_BSPC, KC_UP,   Y_CT_LB,  Y_CT_RB,                   _______, KC_P7,   KC_P8,   KC_P9,   KC_BSPC, _______, \
       Y_CT_A,  KC_ENT,  KC_LEFT, KC_DOWN, KC_RIGHT, KC_SPC,                    KC_SPC,  KC_P4,   KC_P5,   KC_P6,   KC_P0,   KC_ENT, \
       _______, Y_CT_Z,  Y_CT_X,  Y_CT_C,  Y_CT_V,   _______, _______, KC_UNDS, KC_MINS, KC_P1,   KC_P2,   KC_P3,   KC_DOT,  KC_COMM, \
@@ -152,7 +152,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    */
   [_ADJUST] =  LAYOUT( \
       KC_F12,  KC_F1,   KC_F2,   KC_F3,   KC_F4,    KC_F5,                     KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11, \
-      RESET,   _______, _______, _______, AG_NORM,  AG_SWAP,                   _______, _______, _______, _______, _______, _______, \
+      RESET,   _______, _______, _______, AG_NORM,  AG_SWAP,                   KC_CAPS, KC_NLCK, _______, _______, _______, _______, \
       _______, RGBRST,  RGB_RMOD, RGB_HUI, RGB_SAI, RGB_VAI,                   _______, _______, _______, _______, _______, _______, \
       _______, RGB_TOG, RGB_MOD, RGB_HUD, RGB_SAD,  RGB_VAD, _______, _______, _______, _______, _______, _______, _______, _______, \
       _______, _______, _______, _______, _______,  _______, _______, _______, _______, _______, _______, _______, _______, _______ \
