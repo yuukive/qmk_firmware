@@ -36,8 +36,11 @@ enum custom_keycodes {
 };
 
 enum macro_keycodes {
-  KC_SAMPLEMACRO,
+  LOWEI,
+  RAIKN
 };
+#define KC_LOWEI MACROTAP(LOWEI)  // Lower
+#define KC_RAIKN MACROTAP(RAIKN)  // Raise
 
 #define KC______ KC_TRNS
 #define KC_XXXXX KC_NO
@@ -69,15 +72,12 @@ enum macro_keycodes {
 
 #define KC_SFSP SFT_T(KC_SPC)
 #define KC_SFSC SFT_T(KC_SCLN)
-#define KC_CTLEI CTL_T(KC_LANG2)
+#define KC_CTLES CTL_T(KC_ESC)
 #define KC_ALTLB ALT_T(KC_LBRC)
 #define KC_GUIRB GUI_T(KC_RBRC)
 
 #define KC_LOWET LT(_LOWER, KC_ENT)
-#define KC_RAIES LT(_RAISE, KC_ESC)
-
-#define KC_ADJKN LT(_ADJUST, KC_LANG1)
-#define KC_CTLEI CTL_T(KC_LANG2)
+#define KC_ADJES LT(_ADJUST, KC_ESC)
 
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -89,17 +89,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
       GUIRB,     Z,     X,     C,     V,     B,                      N,     M,  COMM,   DOT,  SLSH,   EQL,\
   //|------+------+------+------+------+------+------|  |------+------+------+------+------+------+------|
-                                  LOWER,  SFSP, CTLEI,    ADJKN, LOWET, RAIES \
+                                  LOWEI,  SFSP, CTLES,    ADJES, LOWET, RAIKN \
                               //`--------------------'  `--------------------'
   ),
 
   [_LOWER] = LAYOUT_kc( \
   //,-----------------------------------------.                ,-----------------------------------------.
-        TAB,   DEL,  BSPC,    UP, CTLBC, CTRBC,                   ASTR,     7,     8,     9,  BSPC,  PLUS,\
+        TAB,   DEL,  BSPC,    UP, CTLBC, CTRBC,                   ASTR,    P7,    P8,    P9,  BSPC,  PLUS,\
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
-       CT_A,   ENT,  LEFT,  DOWN, RIGHT,   SPC,                  MINUS,     4,     5,     6,     0,   ENT,\
+       CT_A,   ENT,  LEFT,  DOWN, RIGHT,   SPC,                  MINUS,    P4,    P5,    P6,    P0,   ENT,\
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
-        ESC,  CT_Z,  CT_X,  CT_C, CT_V,  CTLBC,                   SLSH,     1,     2,     3,   DOT,  COMM,\
+        ESC,  CT_Z,  CT_X,  CT_C, CT_V,  CTLBC,                   SLSH,    P1,    P2,    P3,   DOT,  COMM,\
   //|------+------+------+------+------+------+------|  |------+------+------+------+------+------+------|
                                   _____, _____, _____,     _____, _____, _____ \
                               //`--------------------'  `--------------------'
@@ -111,9 +111,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,-----------------------------------------.                ,-----------------------------------------.
       _____,    F1,    F2,    F3,    F4,    F5,                    F11,   F12,    UP,  BSPC,   DEL,   GRV,\
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
-      _____,    F6,    F7,    F8,    F9,   F10,                   TILD,  LEFT,  DOWN, RIGHT,   ENT,  PIPE,\
+      _____,  EXLM,    AT,  HASH,   DLR,  PERC,                   TILD,  LEFT,  DOWN, RIGHT,   ENT,  PIPE,\
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
-      _____,  EXLM,    AT,  HASH,   DLR,  PERC,                   CIRC,  AMPR,  ASTR,  LPRN,  RPRN,  BSLS,\
+      _____,    F6,    F7,    F8,    F9,   F10,                   CIRC,  AMPR,  ASTR,  LPRN,  RPRN,  BSLS,\
   //|------+------+------+------+------+------+------|  |------+------+------+------+------+------+------|
                                   _____, _____, _____,    _____, _____, _____ \
                               //`--------------------'  `--------------------'
@@ -272,3 +272,13 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   return true;
 }
 
+const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt)
+{
+    switch(id) {
+        case LOWEI: // Tap Eisu or Hold LOWER
+          return MACRO_TAP_HOLD_LAYER( record, MACRO(T(MHEN), T(LANG2), END), _LOWER );
+        case RAIKN: // Tap kana or Hold RAISE
+          return MACRO_TAP_HOLD_LAYER( record, MACRO(T(HENK), T(LANG1), END), _RAISE );
+        };
+        return MACRO_NONE;
+}
