@@ -91,7 +91,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
       GUIRB,     Z,     X,     C,     V,     B,                      N,     M,  COMM,   DOT,  SLSH,   EQL,\
   //|------+------+------+------+------+------+------|  |------+------+------+------+------+------+------|
-                                  LOWEI,  SFSP, CTLES,    ADJES, LOWET, RAIKN \
+                                  LOWEI,  SFSP,  LCTL,    ADJES, LOWET, RAIKN \
                               //`--------------------'  `--------------------'
   ),
 
@@ -282,8 +282,6 @@ const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt)
         case RAIKN: // Tap kana or Hold RAISE
           return MACRO_TAP_HOLD_LAYER( record, MACRO(T(HENK), T(LANG1), END), _RAISE );
         case ADJES: // Tap ESC or Hold ESC(Assure IME is set to Eisu)
-          return MACRO_TAP_HOLD_LAYER( record, MACRO(T(MHEN), T(LANG2), T(ESC), END), _ADJUST );
-        case CTLES: // Tap ESC or Hold ESC(Assure IME is set to Eisu)
           return MACRO_TAP_HOLD_LAYER( record, MACRO(T(MHEN), T(LANG2), T(ESC), END), _ADJUST );
         };
         return MACRO_NONE;
