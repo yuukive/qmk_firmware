@@ -37,10 +37,14 @@ enum custom_keycodes {
 
 enum macro_keycodes {
   LOWEI,
-  RAIKN
+  RAIKN,
+  CTLES,
+  ADJES
 };
-#define KC_LOWEI MACROTAP(LOWEI)  // Lower
-#define KC_RAIKN MACROTAP(RAIKN)  // Raise
+#define KC_LOWEI MACROTAP(LOWEI)
+#define KC_RAIKN MACROTAP(RAIKN)
+#define KC_CTLES MACROTAP(CTLES)
+#define KC_ADJES MACROTAP(ADJES)
 
 #define KC______ KC_TRNS
 #define KC_XXXXX KC_NO
@@ -72,12 +76,10 @@ enum macro_keycodes {
 
 #define KC_SFSP SFT_T(KC_SPC)
 #define KC_SFSC SFT_T(KC_SCLN)
-#define KC_CTLES CTL_T(KC_ESC)
 #define KC_ALTLB ALT_T(KC_LBRC)
 #define KC_GUIRB GUI_T(KC_RBRC)
 
 #define KC_LOWET LT(_LOWER, KC_ENT)
-#define KC_ADJES LT(_ADJUST, KC_ESC)
 
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -279,6 +281,10 @@ const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt)
           return MACRO_TAP_HOLD_LAYER( record, MACRO(T(MHEN), T(LANG2), END), _LOWER );
         case RAIKN: // Tap kana or Hold RAISE
           return MACRO_TAP_HOLD_LAYER( record, MACRO(T(HENK), T(LANG1), END), _RAISE );
+        case ADJES: // Tap ESC or Hold ESC(Assure IME is set to Eisu)
+          return MACRO_TAP_HOLD_LAYER( record, MACRO(T(MHEN), T(LANG2), T(ESC), END), _ADJUST );
+        case CTLES: // Tap ESC or Hold ESC(Assure IME is set to Eisu)
+          return MACRO_TAP_HOLD_LAYER( record, MACRO(T(MHEN), T(LANG2), T(ESC), END), _ADJUST );
         };
         return MACRO_NONE;
 }
