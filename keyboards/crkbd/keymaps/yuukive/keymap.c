@@ -38,13 +38,11 @@ enum custom_keycodes {
 enum macro_keycodes {
   LOWEI,
   RAIKN,
-  CTLES,
-  ADJES
+  CTLES
 };
 #define KC_LOWEI MACROTAP(LOWEI)
 #define KC_RAIKN MACROTAP(RAIKN)
 #define KC_CTLES MACROTAP(CTLES)
-#define KC_ADJES MACROTAP(ADJES)
 
 #define KC______ KC_TRNS
 #define KC_XXXXX KC_NO
@@ -80,7 +78,7 @@ enum macro_keycodes {
 #define KC_ALTRB ALT_T(KC_RBRC)
 
 #define KC_LOWET LT(_LOWER, KC_ENT)
-
+#define KC_ADJSP LT(_ADJUST, KC_SPC)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_QWERTY] = LAYOUT_kc( \
@@ -91,7 +89,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
       ALTRB,     Z,     X,     C,     V,     B,                      N,     M,  COMM,   DOT,  SLSH,   EQL,\
   //|------+------+------+------+------+------+------|  |------+------+------+------+------+------+------|
-                                  LOWEI,  SFSP,  LCTL,    ADJES, LOWET, RAIKN \
+                                  LOWEI,  SFSP, CTLES,    ADJSP, LOWET, RAIKN \
                               //`--------------------'  `--------------------'
   ),
 
@@ -278,11 +276,19 @@ const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt)
 {
     switch(id) {
         case LOWEI: // Tap Eisu or Hold LOWER
-          return MACRO_TAP_HOLD_LAYER( record, MACRO(T(MHEN), T(LANG2), END), _LOWER );
+        {
+          const macro_t* macro = MACRO_TAP_HOLD_LAYER( record, MACRO(T(MHEN), T(LANG2), END), _LOWER);
+          update_tri_layer_RGB(_LOWER, _RAISE, _ADJUST);
+          return macro;
+        }
         case RAIKN: // Tap kana or Hold RAISE
-          return MACRO_TAP_HOLD_LAYER( record, MACRO(T(HENK), T(LANG1), END), _RAISE );
-        case ADJES: // Tap ESC or Hold ESC(Assure IME is set to Eisu)
-          return MACRO_TAP_HOLD_LAYER( record, MACRO(T(MHEN), T(LANG2), T(ESC), END), _ADJUST );
+        {
+          const macro_t* macro = MACRO_TAP_HOLD_LAYER( record, MACRO(T(HENK), T(LANG1), END), _RAISE);
+          update_tri_layer_RGB(_LOWER, _RAISE, _ADJUST);
+          return macro;
+        }
+        case CTLES:
+          return MACRO_TAP_HOLD_MOD(record, MACRO(T(MHEN), T(LANG2), T(ESC), END), LCTL);
         };
         return MACRO_NONE;
 }
