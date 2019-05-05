@@ -23,7 +23,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 // place overrides here
 #undef TAPPING_TERM
-#define TAPPING_TERM 230
+#define TAPPING_TERM 210
 #define FORCE_NKRO
 #undef TAPPING_FORCE_HOLD
 #define IGNORE_MOD_TAP_INTERRUPT
