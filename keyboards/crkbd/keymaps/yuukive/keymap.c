@@ -62,6 +62,7 @@ enum macro_keycodes {
 #define KC_LRMOD RGB_RMOD
 
 // defined by yuukive
+#define KC_CAD LCTL(LALT(KC_DEL)) // Ctrl + Alt + Del
 #define KC_CTLBC LCTL(KC_LBRC)
 #define KC_CTRBC LCTL(KC_RBRC)
 #define KC_CT_Z LCTL(KC_Z)
@@ -93,11 +94,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_LOWER] = LAYOUT_kc( \
   //,-----------------------------------------.                ,-----------------------------------------.
-      _____,   DEL,  BSPC,    UP,   SPC, CTRBC,                   ASTR,    P7,    P8,    P9,  BSPC,  MINS,\
+      _____,   DEL,  BSPC,    UP, CTLBC, CTRBC,                   ASTR,    P7,    P8,    P9,  BSPC,  MINS,\
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
-       CT_A,   ENT,  LEFT,  DOWN, RIGHT,   EQL,                   PLUS,    P4,    P5,    P6,    P0,   ENT,\
+      _____,  CT_A,  LEFT,  DOWN, RIGHT,   ENT,                    ENT,    P4,    P5,    P6,    P0,  PLUS,\
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
-      _____,  CT_Z,  CT_X,  CT_C, CT_V,  CTLBC,                   SLSH,    P1,    P2,    P3,   DOT,  COMM,\
+      _____,  CT_Z,  CT_X,  CT_C, CT_V,    SPC,                   SLSH,    P1,    P2,    P3,   DOT,  COMM,\
   //|------+------+------+------+------+------+------|  |------+------+------+------+------+------+------|
                                   _____, _____, _____,    _____, _____, _____ \
                               //`--------------------'  `--------------------'
@@ -107,11 +108,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_RAISE] = LAYOUT_kc( \
   //,-----------------------------------------.                ,-----------------------------------------.
-      _____,  EXLM,    AT,  HASH,   DLR,  PERC,                  _____,  BSLS,    UP,  BSPC,   DEL,   GRV,\
+      _____,  EXLM,    AT,  HASH,   DLR,  PERC,                    F12,  BSLS,    UP,  BSPC,   DEL,   GRV,\
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
-      _____,  CIRC,  AMPR,  ASTR,  LPRN,  RPRN,                   PIPE,  LEFT,  DOWN, RIGHT,   ENT,  TILD,\
+      _____,  CIRC,  AMPR,  ASTR,  LPRN,  RPRN,                    ENT,  LEFT,  DOWN, RIGHT,  TILD,  PIPE,\
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
-      _____, _____, _____, _____, _____, _____,                     F6,    F7,    F8,    F9,   F10, _____,\
+      _____,    F1,    F2,    F3,    F4,    F5,                     F6,    F7,    F8,    F9,   F10,   F11,\
   //|------+------+------+------+------+------+------|  |------+------+------+------+------+------+------|
                                   _____, _____, _____,    _____, _____, _____ \
                               //`--------------------'  `--------------------'
@@ -119,11 +120,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_ADJUST] = LAYOUT_kc( \
   //,-----------------------------------------.                ,-----------------------------------------.
-       LRST, LRMOD, LHUI,  LSAI,  LVAI,    RST,                   NLCK,  CAPS,  PGUP, XXXXX, XXXXX,  PSCR,\
+       LRST, LRMOD, LHUI,  LSAI,  LVAI,    RST,                   NLCK,  CAPS,  PGUP, XXXXX, XXXXX,   CAD,\
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
-       LTOG, LMOD,  LHUD,  LSAD,  LVAD,  XXXXX,                  XXXXX,  HOME,  PGDN,   END, XXXXX, XXXXX,\
+       LTOG, LMOD,  LHUD,  LSAD,  LVAD,  XXXXX,                   PSCR,  HOME,  PGDN,   END, XXXXX, XXXXX,\
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
-        F12,    F1,    F2,    F3,    F4,    F5,                     F6,    F7,    F8,    F9,   F10,   F11,\
+      _____,    1,     2,     3,     4,     5,                      6,     7,     8,     9,     0,  _____,\
   //|------+------+------+------+------+------+------|  |------+------+------+------+------+------+------|
                                   _____, _____, _____,    _____, _____, _____ \
                               //`--------------------'  `--------------------'
