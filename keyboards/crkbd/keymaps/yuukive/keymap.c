@@ -35,15 +35,6 @@ enum custom_keycodes {
   RGBRST
 };
 
-enum macro_keycodes {
-  LOWEI,
-  RAIKN,
-  CTLES
-};
-#define KC_LOWEI MACROTAP(LOWEI)
-#define KC_RAIKN MACROTAP(RAIKN)
-#define KC_CTLES MACROTAP(CTLES)
-
 #define KC______ KC_TRNS
 #define KC_XXXXX KC_NO
 #define KC_LOWER LOWER
@@ -78,6 +69,16 @@ enum macro_keycodes {
 
 #define KC_LOWET LT(_LOWER, KC_ENT)
 #define KC_ADJSP LT(_ADJUST, KC_SPC)
+
+enum macro_keycodes {
+  LOWEI,
+  RAIKN,
+  CTLES
+};
+#define KC_LOWEI MACROTAP(LOWEI)
+#define KC_RAIKN MACROTAP(RAIKN)
+#define KC_CTLES MACROTAP(CTLES)
+
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_QWERTY] = LAYOUT_kc( \
@@ -120,9 +121,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_ADJUST] = LAYOUT_kc( \
   //,-----------------------------------------.                ,-----------------------------------------.
-       LRST, LRMOD, LHUI,  LSAI,  LVAI,    RST,                   NLCK,  CAPS,  PGUP, XXXXX, XXXXX,   CAD,\
+       LRST, LRMOD,  LHUI,  LSAI,  LVAI,   RST,                   NLCK,  CAPS,  PGUP, XXXXX, XXXXX,   CAD,\
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
-       LTOG, LMOD,  LHUD,  LSAD,  LVAD,  XXXXX,                   PSCR,  HOME,  PGDN,   END, XXXXX, XXXXX,\
+       LTOG,  LMOD,  LHUD,  LSAD,  LVAD, XXXXX,                   PSCR,  HOME,  PGDN,   END, XXXXX, XXXXX,\
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
       _____,    1,     2,     3,     4,     5,                      6,     7,     8,     9,     0,  _____,\
   //|------+------+------+------+------+------+------|  |------+------+------+------+------+------+------|
